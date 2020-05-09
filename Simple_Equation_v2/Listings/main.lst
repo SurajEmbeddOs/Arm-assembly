@@ -1,0 +1,121 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; P = Q + R + S
+    2 00000000         ;let Q=2, R=4,S=5
+    3 00000000         
+    4 00000000         
+    5 00000000                 AREA             SimpleAddData,DATA,READONLY
+    6 00000000         
+    7 00000000 00 00 00 
+              00       P       SPACE            4
+    8 00000004 00000002 
+                       Q       DCD              2
+    9 00000008 00000006 
+                       R       DCD              6
+   10 0000000C 00000005 
+                       S       DCD              5
+   11 00000010         
+   12 00000010                 AREA             SimpleEqu,CODE,READONLY
+   13 00000000                 ENTRY
+   14 00000000                 EXPORT           __main
+   15 00000000         __main
+   16 00000000         
+   17 00000000 F85F 0004       LDR              R0,Q
+   18 00000004 F85F 1004       LDR              R1,R
+   19 00000008 F85F 3004       LDR              R3,S
+   20 0000000C         
+   21 0000000C EB00 0401       ADD              R4,R0,R1
+   22 00000010 441C            ADD              R4,R4,R3
+   23 00000012         
+   24 00000012 E7FE    STOP    B                STOP
+   25 00000014                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\objects\main.d -o.\objects\main.o -I.\RTE\_Cortex-M4 -IC:\Use
+rs\suraj\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include -IC:\Users\
+suraj\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST
+\STM32F4xx\Include --predefine="__EVAL SETA 1" --predefine="__MICROLIB SETA 1" 
+--predefine="__UVISION_VERSION SETA 528" --predefine="_RTE_ SETA 1" --predefine
+="STM32F411xE SETA 1" --list=.\listings\main.lst main.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+P 00000000
+
+Symbol: P
+   Definitions
+      At line 7 in file main.s
+   Uses
+      None
+Comment: P unused
+Q 00000004
+
+Symbol: Q
+   Definitions
+      At line 8 in file main.s
+   Uses
+      At line 17 in file main.s
+Comment: Q used once
+R 00000008
+
+Symbol: R
+   Definitions
+      At line 9 in file main.s
+   Uses
+      At line 18 in file main.s
+Comment: R used once
+S 0000000C
+
+Symbol: S
+   Definitions
+      At line 10 in file main.s
+   Uses
+      At line 19 in file main.s
+Comment: S used once
+SimpleAddData 00000000
+
+Symbol: SimpleAddData
+   Definitions
+      At line 5 in file main.s
+   Uses
+      None
+Comment: SimpleAddData unused
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+STOP 00000012
+
+Symbol: STOP
+   Definitions
+      At line 24 in file main.s
+   Uses
+      At line 24 in file main.s
+Comment: STOP used once
+SimpleEqu 00000000
+
+Symbol: SimpleEqu
+   Definitions
+      At line 12 in file main.s
+   Uses
+      None
+Comment: SimpleEqu unused
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 15 in file main.s
+   Uses
+      At line 14 in file main.s
+Comment: __main used once
+3 symbols
+344 symbols in table

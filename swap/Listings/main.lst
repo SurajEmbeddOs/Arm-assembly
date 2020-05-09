@@ -1,0 +1,61 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             Swap,CODE,READONLY
+    2 00000000                 ENTRY
+    3 00000000                 EXPORT           __main
+    4 00000000         __main
+    5 00000000 4804            LDR              R0,=0xBABEFACE
+    6 00000002 4905            LDR              R1,=0XDEADFACE
+    7 00000004         
+    8 00000004 EA80 0001       EOR              R0,R0,R1
+    9 00000008 EA80 0101       EOR              R1,R0,R1
+   10 0000000C EA80 0001       EOR              R0,R0,R1
+   11 00000010         
+   12 00000010 E7FE    Stop    B                Stop
+   13 00000012 00 00           ALIGN
+   14 00000014                 END
+              BABEFACE 
+              DEADFACE 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\objects\main.d -o.\objects\main.o -I.\RTE\_Target_1 -IC:\User
+s\suraj\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include -IC:\Users\s
+uraj\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\
+STM32F4xx\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SE
+TA 528" --predefine="_RTE_ SETA 1" --predefine="STM32F446xx SETA 1" --list=.\li
+stings\main.lst main.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Stop 00000010
+
+Symbol: Stop
+   Definitions
+      At line 12 in file main.s
+   Uses
+      At line 12 in file main.s
+Comment: Stop used once
+Swap 00000000
+
+Symbol: Swap
+   Definitions
+      At line 1 in file main.s
+   Uses
+      None
+Comment: Swap unused
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 4 in file main.s
+   Uses
+      At line 3 in file main.s
+Comment: __main used once
+3 symbols
+340 symbols in table
